@@ -9,22 +9,27 @@ int partition(int, int);
 
 int main(int argc, char* argv[])
 {
-  int k = 3;
   int start = 0;
   int end = LEN - 1;
-  printf("the %dst value in array is %d\n", k, order_statistic(start, end, k));
+
+  int i;
+  for (i = 0; i < LEN; ++i) {
+    printf("the %dst value in array is %d\n", i, order_statistic(start, end, i));
+  }
   return 0;
 }
 
 int order_statistic(int start, int end, int k)
 {
-  int i = partition(start, end);
-  if (k == i)
-    return a[k];
-  else if (k > i)
-    return order_statistic(i + 1, end, (k - i));
-  else
-    return order_statistic(start, i - 1, k);
+  if (end >= start) {
+    int pivot = partition(start, end);
+    if (k == pivot)
+      return a[k];
+    else if (k > pivot)
+      return order_statistic(pivot + 1, end, k);
+    else
+      return order_statistic(start, pivot - 1, k);
+  }
 }
 
 int partition(int start, int end)
