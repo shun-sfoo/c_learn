@@ -4,28 +4,28 @@
 int a[LEN] = { 5, 2, 4, 7, 1, 3, 2, 6 };
 
 int partition(int, int);
-void quicksort(int, int);
+
+void sort(int, int);
 
 int main(int argc, char* argv[])
 {
-  quicksort(0, LEN - 1);
-  printf("%d, %d, %d, %d, %d, %d, %d, %d\n",
-      a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7]);
+  int start = 0, end = LEN - 1, i;
+  sort(start, end);
+
+  for (i = 0; i < LEN; ++i)
+    printf("%d,", a[i]);
+
   return 0;
 }
 
 int partition(int start, int end)
 {
-
-  int i = start;
-  int j = end;
-  int k = start;
-  int tmp;
-
+  int i = start, j = end;
+  int k = a[start], tmp;
   while (i < j) {
-    while (a[i] <= a[k] && i < end)
+    while (i < end && a[i] <= k)
       i++;
-    while (a[j] > a[k])
+    while (a[j] > k)
       j--;
 
     if (i < j) {
@@ -35,19 +35,18 @@ int partition(int start, int end)
     }
   }
 
-  tmp = a[j];
-  a[j] = a[start];
-  a[start] = tmp;
+  tmp = a[start];
+  a[start] = a[j];
+  a[j] = tmp;
 
   return j;
 }
 
-void quicksort(int start, int end)
+void sort(int start, int end)
 {
-  int mid;
   if (end > start) {
-    mid = partition(start, end);
-    quicksort(start, mid - 1);
-    quicksort(mid + 1, end);
+    int pivot = partition(start, end);
+    sort(start, pivot - 1);
+    sort(pivot + 1, end);
   }
 }
