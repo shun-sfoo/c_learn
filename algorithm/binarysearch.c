@@ -12,7 +12,7 @@ int mustbe(int, int, int);
 
 int main(int argc, char* argv[])
 {
-  printf("%d\n", binarysearch(9));
+  printf("%d\n", binarysearch(2));
   return 0;
 }
 
@@ -64,7 +64,9 @@ int binarysearch(int number)
       end = mid - 1;
     else {
       assert(mid >= start && mid <= end && a[mid] == number);
-      return mid;
+      while (a[mid] == number)
+        mid--;
+      return mid + 1;
     }
   }
 
