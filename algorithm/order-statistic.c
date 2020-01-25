@@ -4,25 +4,23 @@
 int a[LEN] = {5, 2, 4, 7, 1, 3, 2, 6};
 
 int partition(int, int);
-
 int order_statistic(int, int, int);
 
 int main(int argc, char *argv[]) {
   int i;
-  for (i = 0; i < LEN; ++i)
-    printf("the %dth value in array is %d\n", i, order_statistic(0, LEN - 1, i));
-
+  for (i = 0; i < LEN; i++)
+    printf("the %dth value in array is %d\n", i,
+           order_statistic(0, LEN - 1, i));
   return 0;
 }
 
 int partition(int start, int end) {
   int i = start, j = end;
-  int k = start, tmp;
-
+  int k = a[start], tmp;
   while (i < j) {
-    while (i < end && a[i] <= a[k])
+    while (i < end && a[i] <= k)
       i++;
-    while (a[j] > a[k])
+    while (a[j] > k)
       j--;
 
     if (i < j) {
@@ -32,21 +30,21 @@ int partition(int start, int end) {
     }
   }
 
-  tmp = a[k];
-  a[k] = a[j];
+  tmp = a[start];
+  a[start] = a[j];
   a[j] = tmp;
 
   return j;
 }
 
 int order_statistic(int start, int end, int k) {
-  if (start <= end){
+  if (start <= end) {
     int pivot = partition(start, end);
-    if (k > pivot)
+    if (pivot < k)
       return order_statistic(pivot + 1, end, k);
-    else if (k < pivot)
+    else if (pivot > k)
       return order_statistic(start, pivot - 1, k);
-    else 
+    else
       return a[pivot];
   }
 }
