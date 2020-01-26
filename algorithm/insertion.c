@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#define LEN 5
-int a[LEN] = {10, 5, 2, 4, 7};
+#define LEN 8
+int a[LEN] = {5, 2, 4, 7, 1, 3, 2, 6};
 
 void insertion(void);
 
@@ -10,7 +10,6 @@ int main(int argc, char *argv[]) {
   insertion();
   for (i = 0; i < LEN; i++)
     printf("%d,", a[i]);
-
   return 0;
 }
 
