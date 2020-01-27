@@ -6,8 +6,8 @@ int a[LEN] = {5, 2, 4, 7, 1, 3, 2, 6};
 void insertion(void);
 
 int main(int argc, char *argv[]) {
-  int i;
   insertion();
+  int i;
   for (i = 0; i < LEN; i++)
     printf("%d,", a[i]);
   return 0;
