@@ -8,7 +8,7 @@ void insertion(void);
 int main(int argc, char *argv[]) {
   insertion();
   int i;
-  for (int i = 0; i < LEN; i++)
+  for (i = 0; i < LEN; i++)
     printf("%d,", a[i]);
 
   return 0;

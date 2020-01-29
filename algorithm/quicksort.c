@@ -4,21 +4,20 @@
 int a[LEN] = {5, 2, 4, 7, 1, 3, 2, 6};
 
 int partition(int, int);
-
 void sort(int, int);
 
 int main(int argc, char *argv[]) {
   sort(0, LEN - 1);
   int i;
-  for (i = 0; i < LEN; ++i)
+  for (i = 0; i < LEN; i++)
     printf("%d,", a[i]);
 
   return 0;
 }
 
 int partition(int start, int end) {
-  int i = start, j = end, k = a[start], tmp;
-
+  int i = start, j = end;
+  int k = a[start], tmp;
   while (i < j) {
     while (i < end && a[i] <= k)
       i++;
