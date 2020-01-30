@@ -11,13 +11,13 @@ int main(int argc, char *argv[]) {
   int i;
   for (i = 0; i < LEN; i++)
     printf("%d,", a[i]);
+
   return 0;
 }
 
 void merge(int start, int mid, int end) {
   int n1 = mid - start + 1;
   int n2 = end - mid;
-
   int left[n1], right[n2], i, j, k;
 
   for (i = 0; i < n1; i++)
@@ -28,6 +28,7 @@ void merge(int start, int mid, int end) {
 
   i = j = 0;
   k = start;
+
   while (i < n1 && j < n2) {
     if (left[i] < right[j])
       a[k++] = left[i++];
@@ -49,5 +50,3 @@ void sort(int start, int end) {
     merge(start, mid, end);
   }
 }
-
-
