@@ -15,13 +15,14 @@ int main(int argc, char *argv[]) {
 
 void insertion(void) {
   int i, j, k;
-  for (i = 1; i < LEN; i++) {
+  for (i = 1; i < LEN; ++i) {
     j = i - 1;
     k = a[i];
     while (j >= 0 && a[j] > k) {
       a[j + 1] = a[j];
       j--;
     }
+
     a[j + 1] = k;
   }
 }
