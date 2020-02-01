@@ -25,15 +25,15 @@ int partition(int start, int end) {
       j--;
 
     if (i < j) {
-      tmp = a[i];
+      tmp  = a[i];
       a[i] = a[j];
       a[j] = tmp;
     }
   }
 
-  tmp = a[start];
+  tmp      = a[start];
   a[start] = a[j];
-  a[j] = tmp;
+  a[j]     = tmp;
 
   return j;
 }

@@ -1,4 +1,3 @@
-/* stack.c */
 #include "stack.h"
 
 static item_t stack[512];
