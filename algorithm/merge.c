@@ -1,7 +1,5 @@
+#include "data.h"
 #include <stdio.h>
-
-#define LEN 8
-int a[LEN] = {5, 2, 4, 7, 1, 3, 2, 6};
 
 void merge(int, int, int);
 void sort(int, int);
@@ -21,11 +19,11 @@ void merge(int start, int mid, int end) {
   int left[n1], right[n2], i, j, k;
   for (i = 0; i < n1; i++)
     left[i] = a[start + i];
-
   for (j = 0; j < n2; j++)
     right[j] = a[mid + 1 + j];
 
   i = j = 0;
+
   k = start;
   while (i < n1 && j < n2) {
     if (left[i] < right[j])
@@ -33,7 +31,6 @@ void merge(int start, int mid, int end) {
     else
       a[k++] = right[j++];
   }
-
   while (i < n1)
     a[k++] = left[i++];
   while (j < n2)
