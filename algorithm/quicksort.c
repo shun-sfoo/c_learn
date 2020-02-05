@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
 
 int partition(int start, int end) {
   int i = start, j = end, k = a[start], tmp;
+
   while (i < j) {
     while (i < end && a[i] <= k)
       i++;

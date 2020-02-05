@@ -7,7 +7,7 @@ void sort(int, int);
 int main(int argc, char *argv[]) {
   sort(0, LEN - 1);
   int i;
-  for (i = 0; i < LEN; i++) {
+  for (i = 0; i < LEN; ++i) {
     printf("%d ", a[i]);
   }
   return 0;
@@ -16,14 +16,16 @@ int main(int argc, char *argv[]) {
 void merge(int start, int mid, int end) {
   int n1 = mid - start + 1;
   int n2 = end - mid;
-
   int left[n1], right[n2], i, j, k;
+
   for (i = 0; i < n1; i++) {
     left[i] = a[start + i];
   }
-  for (j = 0; j < n2; j++) {
+
+  for (j = 0; j < n2; ++j) {
     right[j] = a[mid + 1 + j];
   }
+
   i = j = 0;
 
   k = start;

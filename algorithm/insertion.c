@@ -9,13 +9,12 @@ int main(int argc, char *argv[]) {
   for (i = 0; i < LEN; ++i) {
     printf("%d ", a[i]);
   }
-
   return 0;
 }
 
 void insertion(void) {
   int i, j, k;
-  for (i = 1; i < LEN; ++i) {
+  for (i = 1; i < LEN; i++) {
     j = i - 1;
     k = a[i];
     while (j >= 0 && a[j] > k) {
