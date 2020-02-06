@@ -1,7 +1,8 @@
 #ifndef DATA_H
 
 #define DATA_H
-#define LEN 8
-int a[LEN] = { 5, 2, 4, 7, 1, 3, 2, 6 };
+#define LEN 20
+int a[LEN] = {17, 9,  20, 14, 19, 10, 10, 14, 26, 15,
+              5,  11, 2,  21, 19, 2,  30, 16, 30, 20};
 
 #endif
