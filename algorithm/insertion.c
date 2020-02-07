@@ -1,10 +1,12 @@
 #include "data.h"
+#include <assert.h>
 #include <stdio.h>
 
 void insertion(void);
 
 int main(int argc, char *argv[]) {
   insertion();
+  assert(is_sorted());
   int i;
   for (i = 0; i < LEN; ++i) {
     printf("%d ", a[i]);
